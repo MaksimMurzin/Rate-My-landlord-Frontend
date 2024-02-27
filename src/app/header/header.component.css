@@ -1,0 +1,24 @@
+/* .background-image: linear-gradient(toright, #8360c3, #2ebf91); */
+/* 
+.custom-background{
+    background-image: linear-gradient(45deg,#c6ffdd, #fbd786, #f7797d);
+} */
+
+
+header{
+    margin-bottom: 10vh;
+    position:sticky; top: 0;
+    z-index: 1;
+}
+
+.title{
+    align-self: start;
+    color: #eb5e28;
+    
+    /* font details */
+    font-family: "Seaweed Script", cursive;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 2rem;
+    
+}

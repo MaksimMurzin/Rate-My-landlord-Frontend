@@ -1,0 +1,42 @@
+<div class="container">
+
+    @for (rental of rentals; track $index) {
+        <div class="card item rental-card">
+            <!-- <a href="#"> -->
+            <img
+            src="https://img.freepik.com/free-photo/3d-view-house-model_23-2150761168.jpg?t=st=1707423588~exp=1707427188~hmac=798a89d0079ec20eb525c610cb740eaf77c481c42ca9ad7bac6acc3e7c8ab643?ga=GA1.1.55258416.1707423909&" 
+            class="card-img-top portait-img"
+            alt="house picture"
+            >
+            <div class="card-body" style="color: aliceblue;">
+                <h5> {{rental.address}} </h5>
+                <p> Price: <span> {{rental.price | currency:'GBP'}} per month </span></p> 
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    More information
+                  </button>
+            </div>
+            
+            <!-- </a> -->
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">{{rental.address}}</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+            </div>
+        </div>
+        
+        }
+</div>
