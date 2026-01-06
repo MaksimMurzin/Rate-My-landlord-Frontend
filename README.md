@@ -41,4 +41,6 @@ docker run -d -p 8080:80 --name my-landlord-ui rate-my-landlord-app
 ## Docker compose --watch
 
 this will allow us to dev while running a container, nginx only to be used for prod
+
+docker compose down
 docker compose up --watch
