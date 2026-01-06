@@ -1,6 +1,6 @@
 # RateMyLandlord
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.2.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli).
 
 ## Development server
 
@@ -25,3 +25,15 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## about Dockerfile
+
+this project uses a multistage build file, we build the app and then deploy it on nginx, this immensiley saves on space!
+
+## How to build Docker
+
+docker build -t rate-my-landlord-app .
+
+## How to run Docker
+
+docker run -d -p 8080:80 --name my-landlord-ui rate-my-landlord-app
