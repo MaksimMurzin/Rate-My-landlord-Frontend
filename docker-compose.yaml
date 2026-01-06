@@ -1,0 +1,18 @@
+services:
+  angular-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "4200:4200"
+    develop:
+      watch:
+        # Sync local 'src' changes instantly to the container
+        - action: sync
+          path: ./src
+          target: /app/src
+          ignore:
+            - node_modules/
+        # Automatically rebuild ONLY if you change dependencies
+        - action: rebuild
+          path: package.json

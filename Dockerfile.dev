@@ -1,0 +1,14 @@
+FROM node:20-alpine
+WORKDIR /app
+
+# Install Angular CLI globally
+RUN npm install -g @angular/cli
+
+COPY package*.json ./
+RUN npm install
+
+# We don't COPY the source here because we will mount it via volumes
+EXPOSE 4200
+
+# Start the dev server; --host 0.0.0.0 is required for container access
+CMD ["ng", "serve", "--host", "0.0.0.0", "--poll", "2000"]
