@@ -1,0 +1,23 @@
+services:
+  angular-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "4200:4200"
+    volumes:
+      # REMOVE the line that says ".:/app"
+      - /app/node_modules  # Keep this to protect container dependencies
+    develop:
+      watch:
+        # Sync only the source folder
+        - action: sync
+          path: ./src
+          target: /app/src
+          ignore:
+            - node_modules/
+        # Automatically rebuild if you change configuration files
+        - action: rebuild
+          path: package.json
+        - action: rebuild
+          path: angular.json
