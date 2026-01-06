@@ -1,14 +1,21 @@
 FROM node:20-alpine
 WORKDIR /app
 
-# Install Angular CLI globally
+# 1. Install global CLI (useful for the 'ng' command)
 RUN npm install -g @angular/cli
 
+# 2. Copy only package files first
 COPY package*.json ./
+
+# 3. Install dependencies inside the container
+# This ensures binaries match the Linux OS of the container
 RUN npm install
 
-# We don't COPY the source here because we will mount it via volumes
+# 4. Copy everything else (including angular.json)
+COPY . .
+
+# 5. Expose port
 EXPOSE 4200
 
-# Start the dev server; --host 0.0.0.0 is required for container access
-CMD ["ng", "serve", "--host", "0.0.0.0", "--poll", "2000"]
+# 6. Use 'npx' to ensure we use the local workspace CLI
+CMD ["npx", "ng", "serve", "--host", "0.0.0.0", "--poll", "2000"]
