@@ -8,5 +8,21 @@ Pallate: https://coolors.co/palette/fffcf2-ccc5b9-403d39-252422-eb5e28
 
 
 */
+:root{
+    --header-color: #9DACFF;
+    --call-to-action-color: #ff7d00;
+    --website-background-color: #FAF9F6;
+    --text-color:#2D2E32;
+    --cta-hover: #e64a19;
+    --main-padding: 1rem;
+    --primary-font: 'Inter', sans-serif;
+}
 
-body{ background-color: #0e9594;}
+
+
+/* body{ background-color: #0e9594;} */
+
+body{
+    background-color: var(--website-background-color)
+    
+}
