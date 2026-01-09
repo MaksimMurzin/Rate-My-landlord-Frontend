@@ -1,42 +1,8 @@
 .container{
   display: flex;
   flex-flow: row wrap;
-  column-gap: 10px;
-  row-gap: 5vh;
-  justify-content: space-around;
-  align-content: center;
-    
+  gap: 20px;
+  justify-content: center;
+  padding:20px;
 }
 
-.rental-card{
-  width: 10%;
-  background-color: #778da9;
-  opacity: .75;
-  
-}
-.rental-card:hover
-{
-  opacity: .9;
-  background-color: #eb5e28;
-}
-
-.rental-text{
-  color: #eb5e28;
-}
-
-.portait-img {
-    border-radius: 50%;
-  }
-
-.item{
-    max-width: 25%;
-}
-.container > div{
-    flex: 50%
-}
-
-@media (max-width:700px) {
-    .container{
-      flex-direction:column;
-    }
-  }
