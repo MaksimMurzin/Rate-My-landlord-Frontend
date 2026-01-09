@@ -1,24 +1,57 @@
-/* .background-image: linear-gradient(toright, #8360c3, #2ebf91); */
-/* 
-.custom-background{
-    background-image: linear-gradient(45deg,#c6ffdd, #fbd786, #f7797d);
-} */
+header {
+    
+     /* 1. Reset color to be more transparent */
+    background-color: rgba(157, 172, 255, 0.7); 
+    
+    /* 2. Apply blur with prefix */
+    -webkit-backdrop-filter: blur(12px); 
+    backdrop-filter: blur(12px);
+    
+    /* 3. Add depth */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 
-
-header{
+    /* background-color: #9DACFF; */
     margin-bottom: 10vh;
-    position:sticky; top: 0;
-    z-index: 1;
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Increased to ensure it stays above all other content */
+    
+    /* MODERN HEIGHT APPROACH */
+    min-height: 12dvh;      /* Takes up 12% of the dynamic screen height */
+    display: flex;         /* Allows vertical centering of the brand */
+    flex-direction: column;
+    
+    /* MODERN GLASS EFFECT (Optional) */
+    backdrop-filter: blur(8px);
+    background-color: rgba(157, 172, 255, 0.95);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
-.title{
-    align-self: start;
-    color: #eb5e28;
-    
-    /* font details */
+/* Ensure the inner containers take full width */
+header > div, 
+.navbar {
+    width: 100%;
+}
+.navbar {
+    width: 100%; /* Ensures the Bootstrap navbar fills the flex header */
+    padding: 1.5rem 0; /* Adds modern, breathable vertical space */
+}
+
+.title {
+    color: var(--website-background-color);
     font-family: "Seaweed Script", cursive;
     font-weight: bold;
-    font-style: normal;
-    font-size: 2rem;
-    
+    font-size: 2.5rem; /* Slightly larger for the increased header size */
+    transition: transform 0.3s ease;
+}
+
+.title:hover {
+    transform: scale(1.05); /* Subtle modern interaction */
+}
+
+/* Ensure the toggler icon scales with your new height */
+.navbar-toggler {
+    border: none;
+    padding: 0.5rem;
 }
