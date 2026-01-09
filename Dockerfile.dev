@@ -18,4 +18,5 @@ COPY . .
 EXPOSE 4200
 
 # 6. Use 'npx' to ensure we use the local workspace CLI
-CMD ["npx", "ng", "serve", "--host", "0.0.0.0", "--poll", "2000"]
+# Change your CMD to include --hmr=false
+CMD ["npx", "ng", "serve", "--host", "0.0.0.0", "--poll", "2000", "--hmr=false"]

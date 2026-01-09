@@ -11,7 +11,7 @@ services:
     develop:
       watch:
         # Sync only the source folder
-        - action: sync
+        - action: sync+restart
           path: ./src
           target: /app/src
           ignore:
