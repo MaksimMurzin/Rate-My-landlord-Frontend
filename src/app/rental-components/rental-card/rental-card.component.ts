@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { Rental } from '../rental.model';
 
 @Component({
     selector: 'app-rental-card',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
     standalone: false
 })
 export class RentalCardComponent {
-
+    rental = input.required<Rental>();
 }

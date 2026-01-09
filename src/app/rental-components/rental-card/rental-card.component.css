@@ -1,0 +1,53 @@
+/* 1. Target the custom tag <app-rental-card> itself */
+:host {
+  display: block;
+  width: 100%; 
+  /* Add subtle margin to keep cards from stacking perfectly on mobile */
+  margin-bottom: 20px; 
+}
+
+/* 2. On Desktop, make the HOST smaller */
+@media (min-width: 768px) {
+  :host {
+    width: 30%; 
+    max-width: 300px;
+  }
+}
+
+/* 3. The card should always fill 100% of the :host width */
+.rental-card {
+  width: 100%; 
+  height: 100%; 
+  transition: all 0.4s ease;
+
+  /* --- MODERN GLASS EFFECT --- */
+  /* Use a transparent dark color (e.g., a dark blue with 60% opacity) */
+  background-color: rgba(119, 141, 169, 0.6); 
+  
+  /* Add the blur effect (with prefix for Safari support) */
+  -webkit-backdrop-filter: blur(10px); 
+  backdrop-filter: blur(10px);
+
+  /* Add a border and subtle shadow to define the 'glass' edge */
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1);
+}
+
+.rental-card:hover {
+  /* Use 100% opacity on hover for a clearer, selected look */
+  background-color: #778da9; 
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px); /* Lift the card slightly */
+}
+
+.portait-img {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.cta-button:hover {
+  background-color: var(--call-to-action-color) !important;
+  border-color: var(--call-to-action-color) !important;
+}
