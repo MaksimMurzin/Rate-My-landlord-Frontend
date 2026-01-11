@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Rental } from '../rental.model';
 import { RentalService } from '../../rentals.service';
 
@@ -9,10 +9,6 @@ import { RentalService } from '../../rentals.service';
     standalone: false
 })
 export class RentalListComponent {
-  rentals : Rental[];
-
-  constructor(rentalService: RentalService)
-  {
-    this.rentals = rentalService.getRentals();
-  }
+  rentalService = inject(RentalService);
+  rentals = this.rentalService.getRentals();
 }
