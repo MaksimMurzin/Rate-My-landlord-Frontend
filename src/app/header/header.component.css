@@ -1,31 +1,24 @@
 header {
-    
-     /* 1. Reset color to be more transparent */
+    /* 1. Use the global color variables from styles.css */
+    /* We use a subtle transparency for the glass effect */
     background-color: rgba(157, 172, 255, 0.7); 
     
-    /* 2. Apply blur with prefix */
+    /* 2. Glassmorphism Blur */
     -webkit-backdrop-filter: blur(12px); 
     backdrop-filter: blur(12px);
     
-    /* 3. Add depth */
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-
-    /* background-color: #9DACFF; */
+    /* 3. Layout & Positioning */
     margin-bottom: 10vh;
     position: sticky;
     top: 0;
-    z-index: 1000; /* Increased to ensure it stays above all other content */
-    
-    /* MODERN HEIGHT APPROACH */
-    min-height: 12dvh;      /* Takes up 12% of the dynamic screen height */
-    display: flex;         /* Allows vertical centering of the brand */
+    z-index: 1000;
+    min-height: 12dvh;
+    display: flex;
     flex-direction: column;
-    
-    /* MODERN GLASS EFFECT (Optional) */
-    backdrop-filter: blur(8px);
-    background-color: rgba(157, 172, 255, 0.95);
+
+    /* 4. Visual Depth */
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 /* Ensure the inner containers take full width */
@@ -33,25 +26,30 @@ header > div,
 .navbar {
     width: 100%;
 }
+
 .navbar {
-    width: 100%; /* Ensures the Bootstrap navbar fills the flex header */
-    padding: 1.5rem 0; /* Adds modern, breathable vertical space */
+    padding: 1.5rem 0; /* Modern breathable space */
 }
 
 .title {
+    /* 5. Reference your semantic font and color tokens */
     color: var(--website-background-color);
-    font-family: "Seaweed Script", cursive;
+    font-family: var(--title-font);
     font-weight: bold;
-    font-size: 2.5rem; /* Slightly larger for the increased header size */
-    transition: transform 0.3s ease;
+    font-size: 2.5rem;
+    transition: transform 0.5s ease;
 }
 
 .title:hover {
-    transform: scale(1.05); /* Subtle modern interaction */
+    transform: scale(1.05);
+    color: var(--call-to-action-color);
 }
 
-/* Ensure the toggler icon scales with your new height */
 .navbar-toggler {
     border: none;
     padding: 0.5rem;
+}
+
+.navbar-toggler-icon {
+    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.1));
 }
