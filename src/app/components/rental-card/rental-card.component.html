@@ -1,40 +1,33 @@
-<article class="card rental-card h-100">
+<article class="rental-card">
   <!-- Image Wrapper -->
-  <figure class="m-0 d-flex justify-content-center">
+  <figure class="image-container">
     <img
       [ngSrc]="rental().pictureUrl || 'images/default_house.jpg'"
       width="300"
       height="300"
       priority
-      class="card-img-top portait-img"
+      class="portrait-img"
       alt="Property at {{ rental().address }}"
     />
   </figure>
 
-  <!-- Card Body with inherited text color -->
-  <section class="card-body d-flex flex-column">
-    <h2 class="h5">{{ rental().address }}</h2>
-    <h3 class="h5">Id: {{ rental().id }}</h3>
-    <p class="price-text mb-4">
+  <!-- Content Section -->
+  <section class="card-content">
+    <h2 class="property-address">{{ rental().address }}</h2>
+    <p class="property-id">Id: {{ rental().id }}</p>
+    <app-star-rating [rating]="rental().rating" />
+    <p class="price-text">
       Price:
-      <data [value]="rental().price">{{
-        rental().price | currency: "GBP"
-      }}</data>
+      <data [value]="rental().price">
+        {{ rental().price | currency: "GBP" }}
+      </data>
       per month
     </p>
 
-    <!-- Action Area -->
-    <!-- it is better to use anchor than button for navigation for things like screen readers -->
-    <!-- check A11y for guidelines -->
-    <footer class="mt-auto d-flex justify-content-end">
-      <!-- <button
-        type="button"
-        class="btn btn-secondary cta-button"
-        (click)="navigateToDetails()"
-      >
-        More information
-      </button> -->
-      <a [routerLink]="['/details', rental().id]">Learn More</a>
+    <footer class="card-footer">
+      <a [routerLink]="['/details', rental().id]" class="details-link">
+        Learn More
+      </a>
     </footer>
   </section>
 </article>
