@@ -1,0 +1,33 @@
+<article class="rental-card">
+  <!-- Image Wrapper -->
+  <figure class="image-container">
+    <img
+      [ngSrc]="rental().pictureUrl || 'images/default_house.jpg'"
+      width="300"
+      height="300"
+      priority
+      class="portrait-img"
+      alt="Property at {{ rental().address }}"
+    />
+  </figure>
+
+  <!-- Content Section -->
+  <section class="card-content">
+    <h2 class="property-address">{{ rental().address }}</h2>
+    <p class="property-id">Id: {{ rental().id }}</p>
+    <app-star-rating [rating]="rental().rating" />
+    <p class="price-text">
+      Price:
+      <data [value]="rental().price">
+        {{ rental().price | currency: "GBP" }}
+      </data>
+      per month
+    </p>
+
+    <footer class="card-footer">
+      <a [routerLink]="['/details', rental().id]" class="details-link">
+        Learn More
+      </a>
+    </footer>
+  </section>
+</article>

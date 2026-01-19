@@ -1,0 +1,26 @@
+.rating-wrapper {
+  display: flex;
+  align-items: center;
+  min-height: 1.5rem; /* Prevents layout jump when rating is added */
+  margin-block: 0.5rem;
+}
+
+.star-container {
+  display: flex;
+  gap: 2px;
+
+  .star {
+    font-size: 1.4rem;
+    color: color-mix(in srgb, var(--website-background-color, #ccc), transparent 60%);
+    
+    &.filled {
+      color: #ffc107; /* Modern Gold */
+      text-shadow: 0 0 10px rgba(255, 193, 7, 0.3);
+    }
+  }
+}
+
+.no-rating {
+  font-size: 1rem;
+  font-style: italic;
+}

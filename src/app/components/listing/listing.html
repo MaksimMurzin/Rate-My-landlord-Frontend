@@ -1,0 +1,17 @@
+<section class="listing">
+  <!-- 1. Property Image -->
+  <img
+    [ngSrc]="rental().pictureUrl || 'images/default_house.jpg'"
+    width="300"
+    height="300"
+    priority
+    class="card-img-top portait-img"
+    alt="Property image"
+  />
+
+  <h2 class="listing-heading">{{ rental().address }}</h2>
+  <p>Price: <span>{{ rental().price | currency : "GBP" }} per month</span></p>
+  <button type="button" class="btn btn-secondary cta-button">
+    <a [routerLink]="['/details', rental().id]">More information</a>
+  </button>
+</section>

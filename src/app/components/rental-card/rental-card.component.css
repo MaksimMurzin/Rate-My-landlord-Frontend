@@ -1,0 +1,102 @@
+:host {
+  display: block;
+}
+
+.rental-card {
+  /* Internal layout */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  
+  /* Visual Styles */
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: rgba(var(--card-rgb), 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  
+  /* Shared transition for all hover properties */
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Native Nesting: Hover logic bundled together */
+  &:hover {
+    transform: translateY(-8px);
+    background-color: rgb(var(--card-rgb));
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+
+    /* Target the image when the card is hovered */
+    .portrait-img {
+      outline-color: var(--header-color);
+      outline-offset: 8px;
+    }
+  }
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  
+  .portrait-img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 50%;
+    
+    /* Halo effect */
+    outline: 4px solid transparent;
+    outline-offset: 0;
+    transition: outline-color 0.4s ease, outline-offset 0.4s ease;
+  }
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 1.5rem;
+  color: var(--website-background-color);
+
+  /* Use gap instead of manual margins where possible */
+  gap: 0.5rem;
+
+  .property-address {
+    font-weight: 600;
+  }
+
+  .property-id {
+    font-size: 0.875rem;
+    opacity: 0.7;
+    margin-bottom: 0.5rem;
+  }
+
+  .price-text {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-block: 1rem; /* Combined top/bottom margin */
+
+    data {
+      font-weight: 700;
+      color: color-mix(in srgb, var(--call-to-action-color), white 40%);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+.card-footer {
+  margin-block-start: auto; /* Pushes to bottom */
+  display: flex;
+  justify-content: flex-end;
+
+  .details-link {
+    color: inherit;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.2s ease;
+
+    &:hover {
+      color: var(--call-to-action-color);
+      transform: scale(1.05);
+    }
+  }
+}

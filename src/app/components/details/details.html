@@ -1,0 +1,44 @@
+<div class="page-layout">
+  <!-- This is our container anchor -->
+  @if (rental()) {
+  <article class="rental-detail-grid">
+    <!-- Content: Usually comes first in DOM for Accessibility/SEO -->
+    <section class="listing-description">
+      <h1 class="listing-heading">{{ rental().address }}</h1>
+
+      <div class="meta-info">
+        <p class="listing-id">Ref: {{rental().id}}</p>
+        <p class="listing-rental">
+          {{ rental().price | currency : "GBP" }} <small>/ month</small>
+        </p>
+      </div>
+
+      <section class="listing-features">
+        <h2 class="section-heading">About this housing rental</h2>
+        <div class="description-body">
+          <p>A beautiful property located in the heart of...</p>
+          <p>Further details about the amenities and local area...</p>
+        </div>
+        <div class="rating-box">
+          <span>Rating:</span>
+          <app-star-rating [rating]="rental().rating" />
+        </div>
+      </section>
+    </section>
+
+    <!-- Visual: Image on the right -->
+    <figure class="image-wrapper">
+      <img
+        [ngSrc]="rental().pictureUrl || 'images/default_house.jpg'"
+        width="800"
+        height="600"
+        class="property-image"
+        alt="Exterior of {{ rental().address }}"
+        priority
+      />
+    </figure>
+  </article>
+  } @else {
+  <p class="error-state">Property not found.</p>
+  }
+</div>

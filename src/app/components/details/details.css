@@ -1,0 +1,76 @@
+/* 1. Define the Container */
+.page-layout {
+  container-type: inline-size;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* 2. Grid Layout with Intrinsic Sizing */
+.rental-detail-grid {
+  display: grid;
+  /* Use 'minmax' to prevent text column from getting too squashed */
+  grid-template-columns: minmax(300px, 1.5fr) 1fr;
+  gap: clamp(1rem, 5cqw, 4rem); /* Responsive gap based on container width */
+  align-items: start;
+}
+
+/* 3. The Modern Media Query Replacement (Container Query) */
+@container (max-width: 850px) {
+  .rental-detail-grid {
+    grid-template-columns: 1fr; /* Stack vertically */
+  }
+  
+  .image-wrapper {
+    grid-row: 1; /* Move image to top on mobile for better UX */
+  }
+}
+
+/* 4. Fluid Typography (No more 'pt' units!) */
+.listing-heading {
+  /* Scales smoothly between 2rem and 3.5rem */
+  font-size: clamp(2rem, 8cqw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-block-end: 1rem;
+  color: var(--website-background-color);
+}
+
+.listing-rental {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--call-to-action-color), white 20%);
+}
+
+/* 5. Image Handling */
+.property-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.property-image:hover {
+  transform: scale(1.03) rotate(1deg);
+}
+
+/* 6. Semantic Meta Info */
+.meta-info {
+  display: flex;
+  gap: 2rem;
+  align-items: baseline;
+  margin-block-end: 2rem;
+  padding-block-end: 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.rating-box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-block-start: 1rem;
+}

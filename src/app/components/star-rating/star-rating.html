@@ -1,0 +1,16 @@
+<div class="rating-wrapper">
+  @if (rating() && rating()! > 0) {
+  <div
+    class="star-container"
+    [attr.aria-label]="'Rated ' + rating() + ' out of 5 stars'"
+  >
+    @for (star of stars; track star) {
+    <span class="star" [class.filled]="star <= rating()!">
+      {{ star <= rating()! ? '★' : '☆' }}
+    </span>
+    }
+  </div>
+  } @else {
+  <span class="no-rating">No ratings yet</span>
+  }
+</div>
