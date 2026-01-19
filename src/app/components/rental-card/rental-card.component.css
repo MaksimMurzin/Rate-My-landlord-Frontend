@@ -1,0 +1,78 @@
+/* 1. HOST ELEMENT */
+:host {
+  display: block;
+  width: 100%; 
+  margin-bottom: 2rem;
+  --img-border-color: transparent; 
+}
+
+@media (min-width: 768px) {
+  :host {
+    width: 30%; 
+    max-width: 300px;
+  }
+}
+
+/* 2. THE CARD (Updated to Article) */
+.rental-card {
+  width: 100%; 
+  height: 100%; 
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: var(--radius-lg, 16px);
+  overflow: hidden;
+  background-color: rgba(var(--card-rgb), 0.6); 
+  -webkit-backdrop-filter: blur(10px); 
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-md, 0 8px 32px rgba(0, 0, 0, 0.1));
+}
+
+.rental-card:hover {
+  --img-border-color: var(--header-color); 
+  background-color: rgb(var(--card-rgb)); 
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  transform: translateY(-8px);
+}
+
+/* 3. CARD BODY (Updated to Section) */
+.card-body {
+  /* This ensures all child text (p, data, etc.) uses this color */
+  color: var(--website-background-color); 
+}
+
+/* Specific heading override if necessary, though it inherits now */
+.card-body h2 {
+  color: var(--website-background-color);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+/* 4. IMAGE STYLING */
+.portait-img {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+  padding: 1rem;
+  border: 2px solid var(--img-border-color);
+  transition: border-color 0.4s ease; 
+}
+
+/* 5. BUTTON STYLING */
+.cta-button {
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+  background-color: var(--call-to-action-color) !important;
+  border-color: var(--call-to-action-color) !important;
+  color: #fff;
+  transform: scale(1.02);
+}
+a{
+  color: var(--website-background-color);
+
+}
+a:hover{
+  color: var(--call-to-action-color);
+  transform: scale(1.02);
+}

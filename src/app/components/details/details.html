@@ -1,0 +1,27 @@
+@if (rental()) {
+<article>
+  <img
+    class="listing-photo"
+    [ngSrc]="rental().pictureUrl || 'images/default_house.jpg'"
+    [alt]="'Exterior photo of ' + rental.address"
+    width="600"
+    height="600"
+    priority
+  />
+
+  <section class="listing-description">
+    <h2 class="listing-heading">{{ rental().address }}</h2>
+    <p>Rental id: {{rental().id}}</p>
+    <!-- Fixed the closing quote after GBP -->
+    <p class="listing-rental">{{ rental.price | currency : "GBP" }}</p>
+  </section>
+
+  <section class="listing-features">
+    <h2 class="section-heading">About this housing rental</h2>
+    <!-- Logic: Show rating, or "No rating" if null -->
+    <p>Rating: {{ rental().rating ?? 'No rating yet' }}</p>
+  </section>
+</article>
+} @else {
+<p>Property not found.</p>
+}

@@ -1,0 +1,48 @@
+<!--  this is WIP !!! -->
+
+<!-- 4. Unique Modal for this specific rental -->
+<div
+  class="modal fade"
+  [id]="'modal' + rental().id"
+  tabindex="-1"
+  [attr.aria-labelledby]="'label' + rental().id"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="color: #333">
+      <!-- Ensure modal text is readable -->
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" [id]="'label' + rental().id">
+          {{ rental().address }}
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+
+      <div class="modal-body">
+        <p>
+          <strong>Price:</strong> {{ rental().price | currency : "GBP" }} per
+          month
+        </p>
+        <p>Full property details would go here...</p>
+      </div>
+
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-outline-secondary"
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+        <button type="button" class="btn btn-primary cta-button">
+          Apply Now
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
