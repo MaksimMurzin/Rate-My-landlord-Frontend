@@ -5,6 +5,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
+  min-height: 100dvh
 }
 
 /* 2. Grid Layout with Intrinsic Sizing */

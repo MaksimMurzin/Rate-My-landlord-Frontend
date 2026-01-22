@@ -5,12 +5,7 @@ Pallate: https://coolors.co/palette/fffcf2-ccc5b9-403d39-252422-eb5e28
 
 */
 
-:root{
-
-    --primary-color: #605DC8;
-    --secondary-color: #8B89E6;
-    --accent-color: #e8e7fa;
-    
+:root{    
     --header-color: #9DACFF;
     --call-to-action-color: #ff7d00;
     --website-background-color: #FAF9F6;
@@ -48,6 +43,7 @@ body {
     line-height: 1.6;
     margin: 0;
     -webkit-font-smoothing: antialiased;
+    min-height: 100dvh;
 }
 
 h1, h2, h3, h4, h5 {
