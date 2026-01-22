@@ -1,4 +1,4 @@
-<article class="rental-card">
+<article class="rental-card" (click)="redirectToDetails(rental().id)">
   <!-- Image Wrapper -->
   <figure class="image-container">
     <img
@@ -24,10 +24,10 @@
       per month
     </p>
 
-    <footer class="card-footer">
+    <!-- <footer class="card-footer">
       <a [routerLink]="['/details', rental().id]" class="details-link">
         Learn More
       </a>
-    </footer>
+    </footer> -->
   </section>
 </article>
